@@ -87,6 +87,9 @@ PNode Find_the_penultimate_K_node(PNode pHead, size_t k)
 	PNode pLeft = pHead;
 	PNode pRigth = pHead;
 
+	if (0 == k)
+		return NULL;
+
 	//前指针先往后走K步
 	while (k && pLeft)
 	{
