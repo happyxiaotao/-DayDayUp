@@ -7,6 +7,7 @@ ps：以上三个问题是类似的。
 */
 
 #include <stdio.h>
+#include <stdlib.h>
 
 typedef struct ListNode
 {
