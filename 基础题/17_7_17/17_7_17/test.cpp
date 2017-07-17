@@ -39,7 +39,7 @@ typedef struct ListNode
 //这里采用第二种方法
 void Delete_Not_Tail_Node(PNode pos) //参数表示的是本该删除的那个非尾节点
 {
-	assert(NULL == pos); //既然删除某个节点，就不能为NULL
+	assert(NULL != pos); //既然删除某个节点，就不能为NULL
 
 	if (NULL == pos->_pNext) //pos是尾节点
 		return; 
@@ -51,8 +51,6 @@ void Delete_Not_Tail_Node(PNode pos) //参数表示的是本该删除的那个非尾节点
 	delete pDelete;
 	pDelete = NULL;
 }
-
-
 
 /*
 2.从尾到头打印单链表
@@ -75,26 +73,26 @@ void Print_List_From_Tail_To_Head(PNode pHead)
 int main()
 {
 	int i = 0;
-	Node node[10] = new[] Node;
-	Node node[10] = { 0 }; //建立10个node用来做实验
-	PNode pHead = &node[0]; //指向头节点
+;	
+	//建立10个Node用来做实验
+	PNode pHead = new Node; //指向头节点
+	pHead->_val = 0;
+	pHead->_pNext = NULL;
+	PNode pCur = pHead;
+	//构成链表
+	for (int i = 1; i < 10; ++i)
+	{
+		Node* pTemp = new Node;
+		pTemp->_val = i;
+		pTemp->_pNext  = NULL;
+		pCur->_pNext = pTemp;
+		pCur = pCur->_pNext;
+	}
 
-	//给node赋值
-	for (; i < 10; ++i)
-		node[i]._val = i;
-	//构成一个单链表
-	for (i = 0; i < 9; ++i)
-		node[i]._pNext = &node[i + 1];
-
-	node[9]._pNext = NULL; //注意，最后一个节点的_pNex赋为NULL，则链表不存在环
-
-
-
-	Delete_Not_Tail_Node(&node[1]);
+	Delete_Not_Tail_Node(pHead->_pNext);
 	Print_List_From_Tail_To_Head(pHead);
 	std::cout<<std::endl;
 	
-
 	system("pause");
 	return 0;
 }
