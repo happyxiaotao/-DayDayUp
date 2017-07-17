@@ -65,6 +65,8 @@ PNode Is_Has_Intersection(PNode pHead_1, PNode pHead_2)
 	pTail_1->_pNext = pHead_1;
 	//2，求环的入口。（调用写的函数）
 	PNode pCross = Get_Entrance_Point(pHead_2);
+	//撤销自己添加的环
+	pTail_1->_pNext = NULL;
 
 	return pCross;
 }
@@ -126,7 +128,11 @@ PNode Get_Entrance_Point(PNode pHead)
 再判断两个链表是否带环。
 1，都不带环--->判断两个不带环单链表是否相交，若相交，求交点。
 2，一个带环，一个不带环---->不想交
-3，两个链表都带环---->若相交，环是公有的，则判断链表1的碰撞点是否在链表2的环中。
+3，两个链表都带环---->1，交点在环外，2，交点再环内，3，不相交
+通过两个链表环的入口点是否相等，来判断交点在环外还是环内。
+若相等，则在环外或者就是入口点处。此时相交。--》去掉环，变为求两个不带环单链表求交点交点
+若不相等，则判断两个入口点是否在通过一个环中，若在环中，则两个入口点都是交点。否则，不相交。
+	
 */
 //将函数改写为下
 PNode Is_Has_Intersection_2(PNode pHead_1, PNode pHead_2)
@@ -152,24 +158,54 @@ PNode Is_Has_Intersection_2(PNode pHead_1, PNode pHead_2)
 		return pCross;
 	}
 
-	//一个带环，一个不带环---->不想交
-	if (pImpact_1 || pImpact_2) 
+	//一个带环，一个不带环---->不相交
+	if (!pImpact_1 || !pImpact_2) 
 		return NULL;
 
 	//两个链表都带环---->若相交，环是公有的，则判断链表1的碰撞点是否在链表2的环中
+	//两个链表都带环的情况。
+	//有三种情况。
+	//1，不相交。
+	//2，相交，交点在环外。
+	//3，相交，交点在环内。
+
 	
-	PNode pCur = pImpact_2;   //作为遍历pHead_2的指针 
-	//需要注意的是，在遍历pHead_2时，如果pHead_1的碰撞点不在pHead_2的环中，会死循环
-	//所以，需要从pHead_2的碰撞点，开始遍历，直到再次遇到碰撞点。
-	while (pCur != pImpact_1)
+	//为了不重复定义变量，浪费空间，暂时用pImpact指向返回的环入口点。
+	pImpact_1 = Get_Entrance_Point(pHead_1);
+	pImpact_2 = Get_Entrance_Point(pHead_2);
+	
+	//此时，带环链表有可能相交于环内，有可能不相交
+	if (pImpact_1 != pImpact_2)
 	{
-		pCur = pCur->_pNext;
-		if (pCur == pImpact_2) //防止死循环
-			break;
+		PNode pCur = pImpact_2;   //作为遍历pHead_2的指针 
+		//需要注意的是，在遍历pHead_2时，如果pHead_1的入口点不在pHead_2的环中，会死循环
+		//所以，需要从pHead_2的环入口点，开始遍历，直到再次遇到入口点。
+		while (pCur != pImpact_1)
+		{
+			pCur = pCur->_pNext;
+			if (pCur == pImpact_2) //防止在环内一直遍历，而死循环
+				break;
+		}
+
+		//pHead_1的入口点pImpact_1在pHead_2的环中，即相交，随便返回一个入口点
+		if (pCur == pImpact_1)
+		{
+			return pImpact_1;
+		}
+		else  //否则，不相交
+		{
+			return NULL;
+		}
 	}
-	//pHead_1的碰撞点pImpact_1在pHead_2的环中，即相交
-	if (pCur == pImpact_1)
-		pCross = Get_Entrance_Point(pHead_1);
+
+	//pImpact_1 == pImpact_2
+	//此时，两个链表有一个公共环，并且，节点在环外。--》去掉环的影响，变为求两个不带环单链表求交点问题
+	PNode pTemp = pImpact_1->_pNext; //记录，环的入口的下一节点。
+	pImpact_1->_pNext = pHead_1; //去掉旧环，构成一个新环(pHead_2为头结点)
+	//获取新环的入口点，即原来两个链表的交点
+	pCross = Get_Entrance_Point(pHead_2);
+	//去掉新环，还原旧环
+	pImpact_1->_pNext = pTemp; 
 
 	return pCross;
 }
@@ -193,16 +229,16 @@ int main()
 		for (i = 0; i < 9; ++i)
 			node[i]._pNext = &node[i + 1];
 	
-		node[9]._pNext = NULL; //注意，最后一个节点的_pNex赋为NULL，则链表不存在环
+		node[9]._pNext = &node[2]; //注意，最后一个节点的_pNex赋为NULL，则链表不存在环
 	
 		pHead_2 = &node[indx]; //给pHead_2赋值
 
 		PNode pTemp = Is_Has_Intersection_2(pHead_1, pHead_2);
 
 		if (pTemp)
-			std::cout << "存在交点：" << pTemp->_val << std::endl;
+			std::cout << indx << "存在交点：" << pTemp->_val << std::endl;
 		else
-			std::cout << "不存在交点" << node[9]._val<<std::endl;
+			std::cout << indx << "不存在交点" <<std::endl;
 	}
 	
 	system("pause");
