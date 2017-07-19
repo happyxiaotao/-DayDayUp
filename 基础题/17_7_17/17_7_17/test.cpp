@@ -20,7 +20,7 @@ struct ComplexNode * _random; // 指向随机节点（可以是链表中的任意节点 or 空）
 
 #include <iostream>
 #include <cassert>
-
+#include <stack>
 typedef int DataType;
 typedef struct ListNode
 {
@@ -58,13 +58,33 @@ void Delete_Not_Tail_Node(PNode pos) //参数表示的是本该删除的那个非尾节点
 1，利用递归的特性，从后往前返回遍历的内容。
 2，利用栈存储每次遍历的值，然后出栈。
 */
+
+//利用栈实现
+void Print_Lis_From_Tal_To_Head_1(PNode pHead)
+{
+	std::stack<PNode> s;
+
+	while (pHead)
+	{
+		s.push(pHead);
+		pHead = pHead->_pNext;
+	}
+
+	while (!s.empty())
+	{
+		PNode pTemp = s.top();
+		std::cout << pTemp->_val << " ";
+		s.pop();
+	}
+}
+
 //这里采用递归实现
-void Print_List_From_Tail_To_Head(PNode pHead)
+void Print_List_From_Tail_To_Head_2(PNode pHead)
 {
 	if (NULL == pHead)
 		return;
 
-	Print_List_From_Tail_To_Head(pHead->_pNext);
+	Print_List_From_Tail_To_Head_2(pHead->_pNext);
 
 	std::cout << pHead->_val << " ";
 }
@@ -89,8 +109,9 @@ int main()
 		pCur = pCur->_pNext;
 	}
 
-	Delete_Not_Tail_Node(pHead->_pNext);
-	Print_List_From_Tail_To_Head(pHead);
+	//Delete_Not_Tail_Node(pHead->_pNext);
+	Print_Lis_From_Tal_To_Head_1(pHead);
+	//Print_Lis_From_Tal_To_Head_2(pHead);
 	std::cout<<std::endl;
 	
 	system("pause");
