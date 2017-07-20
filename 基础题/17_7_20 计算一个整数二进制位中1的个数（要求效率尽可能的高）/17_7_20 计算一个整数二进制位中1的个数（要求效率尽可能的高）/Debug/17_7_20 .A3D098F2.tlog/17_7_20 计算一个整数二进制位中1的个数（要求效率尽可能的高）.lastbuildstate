@@ -1,0 +1,2 @@
+#TargetFrameworkVersion=v4.0:PlatformToolSet=v140:EnableManagedIncrementalBuild=false:VCToolArchitecture=Native32Bit
+Debug|Win32|E:\documents\visual studio 2015\Projects\DayDayUp\基础题\17_7_20 计算一个整数二进制位中1的个数（要求效率尽可能的高）\|
