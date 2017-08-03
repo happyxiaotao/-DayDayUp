@@ -1,4 +1,9 @@
-#pragma once
+//#pragma once 与下面功能重复
+/*
+萃取
+1，迭代器的类型。
+2，类的类型
+*/
 
 #ifndef _TRIVIAL_H_
 #define _TRIVIAL_H_
