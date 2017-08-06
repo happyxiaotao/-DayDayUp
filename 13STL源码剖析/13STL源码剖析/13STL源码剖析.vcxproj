@@ -118,6 +118,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ALLoc.h" />
+    <ClInclude Include="Constuct.h" />
+    <ClInclude Include="IteratorTraits.h" />
+    <ClInclude Include="List.h" />
+    <ClInclude Include="TypeTraits.h" />
+    <ClInclude Include="Vector.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
