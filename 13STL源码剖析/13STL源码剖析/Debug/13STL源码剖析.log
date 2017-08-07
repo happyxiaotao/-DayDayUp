@@ -1,0 +1,15 @@
+﻿生成启动时间为 2017/8/7 12:28:50。
+     1>项目“E:\documents\visual studio 2015\Projects\DayDayUp\13STL源码剖析\13STL源码剖析\13STL源码剖析.vcxproj”在节点 2 上(Build 个目标)。
+     1>ClCompile:
+         D:\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp
+         Main.cpp
+     1>e:\documents\visual studio 2015\projects\daydayup\13stl源码剖析\13stl源码剖析\alloc.hpp(58): error C2059: 语法错误:“}”
+         e:\documents\visual studio 2015\projects\daydayup\13stl源码剖析\13stl源码剖析\alloc.hpp(58): note: 参见对正在编译的类 模板 实例化“Malloc_Alloc_Template<inst>”的引用
+     1>e:\documents\visual studio 2015\projects\daydayup\13stl源码剖析\13stl源码剖析\alloc.hpp(58): error C2864: “Malloc_Alloc_Template<inst>::Set_Malloc_Handler”: 带有类内初始值设定项的静态数据成员必须具有不可变的常量整型
+         e:\documents\visual studio 2015\projects\daydayup\13stl源码剖析\13stl源码剖析\alloc.hpp(58): note: 类型是“void (__cdecl *)(OOM_Handler)”
+     1>e:\documents\visual studio 2015\projects\daydayup\13stl源码剖析\13stl源码剖析\alloc.hpp(58): fatal error C1004: 发现意外的文件尾
+     1>已完成生成项目“E:\documents\visual studio 2015\Projects\DayDayUp\13STL源码剖析\13STL源码剖析\13STL源码剖析.vcxproj”(Build 个目标)的操作 - 失败。
+
+生成失败。
+
+已用时间 00:00:02.14

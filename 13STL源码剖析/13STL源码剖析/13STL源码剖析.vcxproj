@@ -118,7 +118,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="ALLoc.h" />
+    <ClInclude Include="ALLoc.hpp" />
     <ClInclude Include="Constuct.h" />
     <ClInclude Include="IteratorTraits.h" />
     <ClInclude Include="List.h" />
