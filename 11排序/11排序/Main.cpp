@@ -1,5 +1,9 @@
+/*
+Main.c文件
+*/
 
-#include <iostream>
+
+#include <iostream> //不添加using namespace std;防止命名污染
 #include <cassert>
 #include "insert_sort.h"
 #include "shell_sort.h"
