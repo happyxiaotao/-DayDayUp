@@ -191,12 +191,12 @@ void Default_Alloc_Template<inst>::Deallocate(void* p, std::size_t n)
 	//大于128调用一级空间适配器
 	if (n > 128)
 	{
-		return Malloc_Alloc::Dellocate(p, n);
+		return Malloc_Alloc::Dellocate(p, n);  //Malloc_Alloc是一级空间配置器
 	}
 	
 	//寻找对应的自由链表
 	std::size_t index = FREELIST_INDEX(n);
-	(Obj*)p->_Free_List_Link = _Free_List[index];
+	(Obj*)p->_Free_List_Link = _Free_List[index]; //注意把指针类型强转
 	_Free_List[index] = (Obj*)p;
 }
 
