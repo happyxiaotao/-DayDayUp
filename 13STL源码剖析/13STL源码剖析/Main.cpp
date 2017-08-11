@@ -12,6 +12,11 @@ int main()
 
 void Test()
 {
-	int* a = (int*)Malloc_Alloc::Allocate(sizeof(a));
+	Simple_Alloc<int, _Alloc> simple;
 
+	simple.Allocate(sizeof(int));
+
+	simple.Allocate(sizeof(int)*19);
+
+	simple.Allocate(sizeof(int)*1);
 }
