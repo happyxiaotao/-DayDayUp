@@ -26,5 +26,8 @@
     <ClInclude Include="shell_sort.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="select_sort.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

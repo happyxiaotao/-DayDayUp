@@ -7,6 +7,7 @@ Main.c文件
 #include <cassert>
 #include "insert_sort.h"
 #include "shell_sort.h"
+#include "select_sort.h"
 
 void Test();
 void PrintArr(int* arr, int size);
@@ -27,8 +28,8 @@ void Test()
 
 	printf("排序前：");
 	PrintArr(arr, size);
+	SelectSort(arr, size);
 
-	ShellSort(arr, size);
 	printf("排序后：");
 	PrintArr(arr, size);
 }
