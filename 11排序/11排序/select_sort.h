@@ -1,7 +1,13 @@
 #pragma once
 #include <cassert>
-//选择排序
+/*
+选择排序
 
+最好情况：O（2^N）
+最差情况：O（2^N）
+平均时间复杂度：O（2^N）
+空间复杂度：O（1）
+*/
 
 ////有巨大的缺陷？
 //void SelectSort(int* arr, int size)

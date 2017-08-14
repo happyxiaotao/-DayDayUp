@@ -4,6 +4,7 @@ Main.c文件
 
 
 #include <iostream>		//不添加using namespace std;防止命名污染
+#include <time.h>
 #include <cassert>
 #include "insert_sort.h"	//插入排序
 #include "shell_sort.h"		//希尔排序
@@ -11,8 +12,10 @@ Main.c文件
 #include "bubble_sort.h"	//冒泡排序
 #include "quick_sort.h"		//快速排序
 #include "heap_sort.h"		//堆排序
+#include "merge_sort.h"     //归并排序
+#include "count_sort.h"		//计数排序
 
-#define SORT InsertSort
+#define SORT CountSort
 
 void Test();
 void PrintArr(int* arr, int size);
@@ -28,8 +31,12 @@ int main()
 
 void Test()
 {
-	int arr[] = {513,10,9,523,8,7,-10,6,30,50,5,4,3,1,2,453945,999,1,1003};
-	int size = sizeof(arr) / sizeof(arr[0]);
+	srand((unsigned)time(0));
+	
+	const int size = 20;
+	int arr[size] = {0};
+	for (int i = 0; i < size; i++)
+		arr[i] = rand()-rand()+rand();
 
 	printf("排序前：");
 	PrintArr(arr, size);
