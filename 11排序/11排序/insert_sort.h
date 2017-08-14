@@ -22,7 +22,7 @@ void InsertSort(int* array, int size)
 	assert(nullptr != array);
 	assert(size > 0);
 
-	for (int idx = 1; idx < size; idx++)
+	for (int idx = 1; idx < size; idx++) //在原来存在一个元素的基础上插入.
 	{
 		int key = array[idx];
 		int end = idx - 1;
@@ -37,7 +37,7 @@ void InsertSort(int* array, int size)
 	}
 }
 
-//优化：减少循环内的比较次数
+//优化：减少循环内的比较次数.
 //利用二分查找直接找到到插入位置
 void InsertSort_Optimize(int* array, int size)
 {
@@ -49,7 +49,7 @@ void InsertSort_Optimize(int* array, int size)
 		int key = array[idx];
 		int end = idx - 1;
 
-		int left = 0;
+		int left = 0;  //left保留存储位置
 		int right = end;
 
 		//比较次数 O（log2N）
@@ -62,13 +62,12 @@ void InsertSort_Optimize(int* array, int size)
 				left = mid + 1;
 		}
 
-		//left保存存储位置
-		while (end >= left)
+		while (end > left) //利用了插入排序思想
 		{
 			array[end + 1] = array[end];
 			end--;
 		}
 
-		array[end + 1] = key;
+		array[left] = key;
 	}
 }
