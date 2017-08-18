@@ -28,6 +28,8 @@
 #include <iostream>
 #include <queue>
 #include <stack>
+#include <list>
+
 using namespace std;
 
 template <typename T>
@@ -46,6 +48,7 @@ struct BinaryTreeNode
 template <typename T>
 class BinaryTree//将成员函数的实现进行简单的封装，用户只能显示调用公共接口
 {
+public:
 	typedef BinaryTreeNode<T> Node;
 public:
 	BinaryTree()//无参构造函数
@@ -171,6 +174,12 @@ public:
 		return _IsSameTree(m_pRoot, t2);
 	}
 
+	Node* GetLeastCommonAncestors(Node* n1, Node* n2) //获取两个节点的最近公共祖先
+	{
+		return _GetLeastCommonAncestors(m_pRoot, n1, no2);
+	}
+
+
 private:
 
 	void _CreateTree(Node*& pRoot, const T array[], size_t size, size_t& index, const T& invalid);//创建树
@@ -209,6 +218,8 @@ private:
 	bool _IsSubTree(Node* t1, Node* t2); //判断t2是否是t1的子树
 
 	bool _IsSameTree(Node* t1, Node* t2); //判断两颗树的节点值是否相同
+
+	Node* _GetLeastCommonAncestors(Node* root, Node* n1, Node* n2); //获取两个节点的最近公共祖先
 
 private:
 	BinaryTreeNode<T>* m_pRoot;//根结点
@@ -658,5 +669,61 @@ bool BinaryTree<T>::_IsSameTree(Node* t1, Node* t2)
 	//两个节点不相同，则t1,t2不相等
 	return false;
 }
+
+
+//
+template <typename T>
+void GetPathList(list<Node*> list, Node* root, Node* node)
+{
+	if (nullptr == root || nullptr == node)
+		return;
+
+	list.push_back(root);
+
+	Node* pCur = list.back();
+
+	while (!list.empty())
+	{
+		while (pCur->m_pLeft)
+		{
+			list.push_back(pCur->m_pLeft);
+			if (pCur->m_data == node->m_data)
+				return;
+			pCur = pCur->m_pLeft;
+		}
+
+		if (pCur->m_pRight)
+			pCur = pCur->m_pRight;
+		else
+		{
+			Node* temp = list.back();
+		}
+	}
+	
+}
+//获取两个节点的最近公共祖先（利用list保存先序遍历路径，然后找最后一个不同的）
+template <typename T>
+Node* BinaryTree<T>::_GetLeastCommonAncestors(Node* root, Node* n1, Node* n2) 
+{
+	if (nullptr == root || root == n1 || root == n2)
+		return root;
+	if (nullptr == n1)
+		return n2;
+	if (nullptr == n2)
+		return n1;
+
+	list<Node*> list1;
+	list<Node*> list2;
+
+	GetPathList(list1, root, n1);
+	GetPathList(list2, root, n2);
+
+	return LCA(list, list2);
+}
+
+
+
+
+
 
 #endif //_BINARYTREE_H_
