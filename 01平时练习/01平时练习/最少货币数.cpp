@@ -41,9 +41,9 @@ int MinCoins(int *arr, int size, int money)
 	return money ? -1 : count;
 }
 
-
-int main()
-{
+/*
+void Test()
+{	
 	int arr[] = { 5,2,5,3 };
 	int size = sizeof(arr)/sizeof(arr[0]);
 	int money = 15;
@@ -51,7 +51,5 @@ int main()
 	int count = MinCoins(arr, size, money);
 
 	cout << "count = " << count << endl;
-
-	system("pause");
-	return 0;
 }
+*/

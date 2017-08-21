@@ -1,0 +1,12 @@
+﻿生成启动时间为 2017/8/19 20:41:00。
+     1>项目“E:\documents\visual studio 2015\Projects\DayDayUp\11排序\11排序\11排序.vcxproj”在节点 2 上(Build 个目标)。
+     1>ClCompile:
+         D:\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp
+         Main.cpp
+     1>e:\documents\visual studio 2015\projects\daydayup\11排序\11排序\main.cpp(24): error C2084: 函数“int main(void)”已有主体
+         e:\documents\visual studio 2015\projects\daydayup\11排序\11排序\merge_sort.h(107): note: 参见“main”的前一个定义
+     1>已完成生成项目“E:\documents\visual studio 2015\Projects\DayDayUp\11排序\11排序\11排序.vcxproj”(Build 个目标)的操作 - 失败。
+
+生成失败。
+
+已用时间 00:00:07.88

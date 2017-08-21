@@ -12,34 +12,27 @@
 
 
 
-#include "unionset.h"
+
+#include "disjsets.h"
 
 void Test()
 {
-	UnionSet u(5);
 
-	u.UnionFriends(1, 2);
-	u.UnionFriends(4, 5);
-	u.UnionFriends(2, 3);
+	DisjSets d(10);
+	d.unionSets(0, 1);
+	d.unionSets(2, 1);
+	d.unionSets(5, 6);
+	d.unionSets(8, 9);
+	d.unionSets(1, 5);
 
-	cout << u.GetCountFriends(1) << endl;
-	cout << u.GetCountFriends(2) << endl;
-	cout << u.GetCountFriends(3) << endl;
-	cout << u.GetCountFriends(4) << endl;
-	cout << u.GetCountFriends(5) << endl;
-
-	cout << "´òÓ¡¸ù£º" << endl;
-	cout << u.GetRoot(1) << endl;
-	cout << u.GetRoot(2) << endl;
-	cout << u.GetRoot(3) << endl;
-	cout << u.GetRoot(4) << endl;
-	cout << u.GetRoot(5) << endl;
+	for (int i = 0; i < 10; i++)
+		cout << d.getNumber(i) << endl;
 }
 
 
 int main()
 {
-	Test();
+	Test(); 
 
 	system("pause");
 	return 0;

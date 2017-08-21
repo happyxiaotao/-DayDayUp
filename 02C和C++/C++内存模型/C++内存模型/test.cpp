@@ -30,22 +30,27 @@ class A
 {
 	int a;
 	virtual void funa() { cout << "funa\n"; }
-	virtual void funb() { cout << "A funb\n" << endl; }
+	virtual int funb() { cout << "A funb\n" << endl; return 1; }
 };
 
-class B : virtual public A
+//class B : virtual public A
+class B : public A
 {
 	int b;
-	virtual void funb() { cout << "B funb\n"; }
+	virtual void funb(int a) { cout << "B funb\n"; }
 	virtual void func() { cout << "func\n"; }
 };
 
+int fun(int a);
 int main()
 {
 
 
 	B tb;
+	A ta;
 	A* pa = &tb;
+
+	fun(10);
 
 	cout << (int)pa << endl;
 	cout << (int)&tb << endl;

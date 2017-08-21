@@ -44,7 +44,7 @@ void merge(int* arr, int left, int mid, int right)
 
 	while (count >= 0)  //将临时数组中有序数据，放入arr数组中
 		arr[left + count] = temp[count];
-
+	
 }
 
 void _mergeSort(int* arr, int left, int right)
