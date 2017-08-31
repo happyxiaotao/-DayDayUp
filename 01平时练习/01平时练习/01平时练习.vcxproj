@@ -118,7 +118,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="test.c" />
     <ClCompile Include="偶数之间的距离和.cpp" />
+    <ClCompile Include="判断字符串是否是合法IP.c" />
     <ClCompile Include="最少货币数.cpp" />
     <ClCompile Include="递归与动态规划_换钱的方法数.cpp" />
   </ItemGroup>

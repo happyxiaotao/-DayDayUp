@@ -1,0 +1,18 @@
+﻿生成启动时间为 2017/9/1 2:25:04。
+     1>项目“E:\documents\visual studio 2015\Projects\DayDayUp\01平时练习\01平时练习\01平时练习.vcxproj”在节点 2 上(Build 个目标)。
+     1>ClCompile:
+         D:\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:prompt "判断字符串是否是合法IP.c"
+         判断字符串是否是合法IP.c
+     1>e:\documents\visual studio 2015\projects\daydayup\01平时练习\01平时练习\判断字符串是否是合法ip.c(124): warning C4013: “system”未定义；假设外部返回 int
+       Link:
+         D:\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\documents\visual studio 2015\Projects\DayDayUp\01平时练习\Debug\01平时练习.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"E:\documents\visual studio 2015\Projects\DayDayUp\01平时练习\Debug\01平时练习.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\documents\visual studio 2015\Projects\DayDayUp\01平时练习\Debug\01平时练习.lib" /MACHINE:X86 Debug\test.obj
+         "Debug\偶数之间的距离和.obj"
+         "Debug\判断字符串是否是合法IP.obj"
+         "Debug\最少货币数.obj"
+         "Debug\递归与动态规划_换钱的方法数.obj"
+     1>LINK : fatal error LNK1168: 无法打开 E:\documents\visual studio 2015\Projects\DayDayUp\01平时练习\Debug\01平时练习.exe 进行写入
+     1>已完成生成项目“E:\documents\visual studio 2015\Projects\DayDayUp\01平时练习\01平时练习\01平时练习.vcxproj”(Build 个目标)的操作 - 失败。
+
+生成失败。
+
+已用时间 00:00:03.57

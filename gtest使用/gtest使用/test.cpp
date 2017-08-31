@@ -74,97 +74,123 @@ int _tmain(int argc, _TCHAR* argv[])
 }
 */
 
-#include <iostream>
-#include <cassert>
+
+#include<iostream>
+#include<string>
+#include "gtest\gtest.h"
 using namespace std;
-void MergeSort(int* data, int left, int right)
+class Solution
 {
-	assert(data);
-
-	if (left == right)
-		return;
-
-	int mid = left + ((right - left) >> 1);
-
-	MergeSort(data, left, mid);
-	MergeSort(data, mid + 1, right);
-
-	int i = left;
-	int j = mid + 1;
-
-	int* temp = new int[right - left + 1];  //开辟临时数组空间
-	int count = 0; //记录temp数组将要使用的位置
-
-	while (i <= mid && j <= right)//将两个有序部分合并，存储在temp中
+public:
+	string legalIPAddress(const string ipStr)
 	{
-		while (data[i] <= data[j])
-		{
-			temp[count] = data[i];
-			count++;
-			i++;
-		}
 
-		while (data[i] >= data[j])
-		{
-			temp[count] = data[j];
-			count++;
-			j++;
-		}
-	}
-
-	while (count >= 0)  //将临时数组中有序数据，放入arr数组中
-		data[left + count] = temp[count];
-}
-
-void Unique(int* data, int *m)
-{
-	assert(data && m>0);
-
-	int i = 0;
-	int offset = 1;
-	while (i < *m && (i + offset)<*m)
-	{
-		if (data[i] == data[i + offset])
-			offset++;
+		if (_IsIPv4(ipStr))
+			return "IPv4";
+		else if (_IsIPv6(ipStr))
+			return "IPv6";
 		else
-		{
-			data[i + 1] = data[i + offset];
-			i++;
-		}
+			return "No";
 	}
-	*m = i-1;
+private:
+	bool _IsIPv4(const string ipStr)
+	{
+		if ("" == ipStr)
+			return false;
+		string temp = "";
+		size_t flag = 0;
+		size_t count = 0;
+		size_t ipLength = ipStr.length();
+		for (size_t i = 0; i <= ipLength; ++i)
+		{
+			if ('.' != ipStr[i] && '\0' != ipStr[i])
+			{
+				//如果字符串中的字符包含非 . 非 数字的字符，则返回false
+				if (ipStr[i]<'0' || ipStr[i]>'9')
+					return false;
+				temp = temp + ipStr[i];
+				flag++;
+				//如果数字部分超过三位数则返回false
+				if (flag >= 4)
+					return false;
+			}
+			else
+			{
+				//将temp转换为数字判断其范围
+				if ("" != temp &&stoi(temp)<256 && stoi(temp) >= 0)
+				{
+					if ('0' == temp[0] && temp.length()>1)
+						return false;
+					count++;
+					//当count=4的时候若不是最后一个字符则返回false
+					if (count == 4)
+						return i == ipLength;
+				}
+				else
+					return false;
+				temp = "";
+				flag = 0;
+			}
+		}
+		return false;
+	}
+	bool _IsIPv6(string ipStr)
+	{
+		if ("" == ipStr)
+			return false;
+		string temp = "";
+		size_t flag = 0;
+		size_t count = 0;
+		size_t ipLength = ipStr.length();
+		for (size_t i = 0; i <= ipStr.length(); i++)
+		{
+			if ((ipStr[i] >= '0'&&ipStr[i] <= '9') || (ipStr[i] >= 'A'&&ipStr[i] <= 'F') || (ipStr[i] >= 'a'&&ipStr[i] <= 'f'))
+			{
+				flag++;
+				if (flag>4)
+					return false;
+			}
+			else if (ipStr[i] == ':' || ipStr[i] == '\0')
+			{
+				if (flag == 0)
+					return false;
+				count++;
+				flag = 0;
+				if (8 == count)
+					return i == ipLength;
+			}
+			else
+				return false;
+
+		}
+		return false;
+	}
+};
+
+
+TEST(Solutions,legalIPAddress)
+{
+	Solution s;
+	string str;
+	//while (cin >> str)
+	//{
+		const char* ret = s.legalIPAddress(str).c_str();
+		//cout << s.legalIPAddress(str) << endl;
+		EXPECT_STREQ("No","No");
+		EXPECT_STREQ("No", "No");
+		EXPECT_STREQ("No", "No");
+		EXPECT_STREQ("No", "No");
+		EXPECT_STREQ("No", s.legalIPAddress("1.1").c_str());
+		EXPECT_STRNE("No", s.legalIPAddress("1.1.1.1").c_str());
+		//EXPECT_STRNE("No", "No");
+		//EXPECT_STRNE("No", "No");
+//	}
 }
 
-int main()
+int main(int argc, char* argv[])
 {
-	int n = 0;
-	int m = 0;
-	cin >> n;
-	m = n;
-	int* data = new int[n];
-	int i = 0;
-	for (; i < n; i++)
-		cin >> data[i];
-	
-	int* copy = new int[n];
-
-	for (i = 0; i < n; i++)
-		cout << data[i] << " ";
-	cout << endl;
-
-	MergeSort(data, 0, n - 1);
-
-	for (i = 0; i < n; i++)
-		cout << data[i] << " ";
-/*
-	Unique(data, &m);
-
-	cout << m << endl;
-	for (i = 0; i < m; i++)
-		cout << data[i] << " ";
-*/
-	delete[] data;
-	delete[] copy;
+	testing::InitGoogleTest(&argc, argv);
+	RUN_ALL_TESTS();
 
 	system("pause");
 	return 0;

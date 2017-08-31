@@ -24,5 +24,11 @@
     <ClCompile Include="递归与动态规划_换钱的方法数.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="test.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="判断字符串是否是合法IP.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
