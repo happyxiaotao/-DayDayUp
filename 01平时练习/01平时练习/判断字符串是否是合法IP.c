@@ -80,6 +80,7 @@ BOOL IsValidIpAddress(const char *ip) //不能修改ip指向字符串的内容
 	else
 		return FALSE;
 }
+
 void Test()
 {
 	char *ip[20] = { NULL };

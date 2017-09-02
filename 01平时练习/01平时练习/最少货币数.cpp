@@ -1,3 +1,5 @@
+#if 0
+
 //#include <iostream>
 //using namespace std;
 //
@@ -53,3 +55,5 @@
 //	cout << "count = " << count << endl;
 //}
 //*/
+
+#endif
