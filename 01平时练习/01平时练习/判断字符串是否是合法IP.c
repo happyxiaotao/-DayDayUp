@@ -1,3 +1,4 @@
+ 0
 /*
 题目：判断一个字符串是否是合法的IP
 思路：
@@ -10,6 +11,8 @@ IP字符串是一个点分十进制。
 3，数字字符表示的数超出了0~255之外。
 
 */
+
+#if 0
 
 #include <stdio.h>  
 #include <string.h>		// strlen()
@@ -126,3 +129,5 @@ int main()
 
 	return 0;
 }
+
+#endif
