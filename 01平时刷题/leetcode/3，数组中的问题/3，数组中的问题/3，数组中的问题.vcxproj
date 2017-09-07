@@ -122,6 +122,7 @@
     <ClCompile Include="one_027RemoveElement.cpp" />
     <ClCompile Include="one_283MoveZeros.cpp" />
     <ClCompile Include="one_080RemoveDuplicatesFromSortedArrayII.cpp" />
+    <ClCompile Include="two_076Minimum Window Substring.cpp" />
     <ClCompile Include="two_088MergeSortedArray.cpp" />
     <ClCompile Include="two_075SortColors.cpp" />
     <ClCompile Include="two_11Container With Most Water.cpp" />
@@ -130,6 +131,7 @@
     <ClCompile Include="two_209Minimum Size Subarray Sum.cpp" />
     <ClCompile Include="two_215KthLargestElementInAnArray.cpp" />
     <ClCompile Include="two_344+345 Reverse String.cpp" />
+    <ClCompile Include="two_438 Find All Anagrams in a String.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="two_003Longest Substring Without Repeating Characters.cpp" />

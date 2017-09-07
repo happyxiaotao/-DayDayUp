@@ -51,6 +51,12 @@
     <ClCompile Include="two_209Minimum Size Subarray Sum.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="two_438 Find All Anagrams in a String.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="two_076Minimum Window Substring.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="two_003Longest Substring Without Repeating Characters.cpp">
