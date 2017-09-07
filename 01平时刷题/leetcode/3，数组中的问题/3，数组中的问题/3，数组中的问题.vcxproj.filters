@@ -42,5 +42,19 @@
     <ClCompile Include="two_125Valid Palindrome.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="two_344+345 Reverse String.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="two_11Container With Most Water.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="two_209Minimum Size Subarray Sum.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="two_003Longest Substring Without Repeating Characters.cpp">
+      <Filter>源文件</Filter>
+    </None>
   </ItemGroup>
 </Project>

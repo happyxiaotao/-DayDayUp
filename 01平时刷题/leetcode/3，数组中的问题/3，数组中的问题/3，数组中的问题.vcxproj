@@ -124,9 +124,15 @@
     <ClCompile Include="one_080RemoveDuplicatesFromSortedArrayII.cpp" />
     <ClCompile Include="two_088MergeSortedArray.cpp" />
     <ClCompile Include="two_075SortColors.cpp" />
+    <ClCompile Include="two_11Container With Most Water.cpp" />
     <ClCompile Include="two_125Valid Palindrome.cpp" />
     <ClCompile Include="two_167Two Sum II -InputArrayIsSorted.cpp" />
+    <ClCompile Include="two_209Minimum Size Subarray Sum.cpp" />
     <ClCompile Include="two_215KthLargestElementInAnArray.cpp" />
+    <ClCompile Include="two_344+345 Reverse String.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="two_003Longest Substring Without Repeating Characters.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
